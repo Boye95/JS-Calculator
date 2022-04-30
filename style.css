@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container {
+    background-color: black;
+    width: 70vw;
+    height: 90vh;
+    border-radius: 1.5rem;
+}
+
+#noti-bar {
+    ba
+    color: white;
+}
