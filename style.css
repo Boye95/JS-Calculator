@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
 * {
     box-sizing: border-box;
     padding: 0px;
@@ -14,12 +15,82 @@ body {
 
 #container {
     background-color: black;
-    width: 70vw;
+    width: 50vw;
     height: 90vh;
     border-radius: 1.5rem;
 }
 
 #noti-bar {
-    ba
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius:1.5rem 1.5rem 0 0;
+    height: 2rem;
+    padding: 1.5rem;
     color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+#icon {
+    display: flex;
+    align-items: center; 
+}
+
+.icons {
+    height: 12px;
+    filter: invert(100);
+    padding-right: 6px;
+}
+
+.battery {
+    height: 19px;
+}
+
+#light-dark {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 12vw;
+    padding: 10px;
+    border-radius: 1rem;
+    background-color: rgb(27, 22, 22);
+}
+
+.mode {
+    height: 20px;
+    filter: invert(100);
+    cursor: pointer;
+}
+
+.light {
+    opacity: 0.5;
+}
+
+#screen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1rem;
+    color: white;
+    /* background-color: rgb(61, 65, 68); */
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    height: 30%;
+}
+
+.cal-input {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+#cal-keys-section {
+    border-radius: 1.5rem;
+    background-color: rgb(19, 18, 18);
+    height: 57%;
 }
