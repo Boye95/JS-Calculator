@@ -15,7 +15,7 @@ body {
 
 #container {
     background-color: black;
-    width: 50vw;
+    width: 20rem;
     height: 90vh;
     border-radius: 1.5rem;
 }
@@ -93,5 +93,61 @@ body {
     border-radius: 1.5rem;
     background-color: rgb(19, 18, 18);
     height: 57%;
+}
+
+#keys {
     color: aliceblue;
+    padding: 1rem;
+    display: grid;
+    grid-template-areas:
+      "special-keys math-keys"
+      "numbers math-keys";
+    grid-template-columns: 5fr 1fr;
+    gap: 1rem;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+#special-keys, #numbers-section, #math-keys {
+    display: grid;
+    gap: 1rem;
+}
+
+.special, .number, .math-key {
+    background-color: rgb(26, 25, 25);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    border-radius: 0.8rem;
+    padding: 0.5rem;  
+    cursor: pointer;
+}
+
+#special-keys {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-area: special-keys;
+    color: rgb(2, 255, 242);
+}
+
+#numbers-section {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-area: numbers;
+}
+
+.undo img {
+    filter: invert(100);
+}
+#math-keys {
+    color: rgb(202, 72, 72);
+    grid-area: math-keys;
+}
+
+#line {
+    width: 40%;
+    height: 4px;
+    border-radius: 33px;
+    margin: auto;
+    background-color: rgb(59, 58, 58);
 }
