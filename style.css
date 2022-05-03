@@ -114,9 +114,10 @@ body {
 }
 
 .special, .number, .math-key {
-    background-color: rgb(26, 25, 25);
+    background-color: #1a1919;
     font-family: 'Poppins', sans-serif;
     font-size: 1.3rem;
+    font-weight: 900;
     width: 3rem;
     height: 3rem;
     text-align: center;

@@ -7,11 +7,26 @@ const lightSwitch = document.querySelector('#light-dark');
 const light = document.querySelector('.light');
 const dark = document.querySelector('.dark');
 const screen = document.querySelector('#screen');
+
 const keySection = document.querySelector('#cal-keys-section');
+
+// selecting span elements inside #numbers-section div
 const numberSection = document.querySelector('#numbers-section');
-const keyBoxes = document.querySelectorAll('#keys').childNodes;
+const numberSpan = numberSection.querySelectorAll('.number');
+
+// selecting undo image so as to invert it
+const undoImg = document.querySelector('.undo-img');
+
+// selecting span elements inside #special-keys div
+const specialKeys = document.querySelector('#special-keys');
+const specialKeysSpan = specialKeys.querySelectorAll('.special');
+
+// selecting span elements inside #math-keys div
+const mathKeys = document.querySelector('#math-keys');
+const mathKeysSpan = mathKeys.querySelectorAll('.math-key');
 
 (function () {
+    // Eventlistener for the light icon
     light.addEventListener('click', () => {
         container.style.backgroundColor = "white";
         notiBar.style.filter = "invert(100)";
@@ -21,8 +36,22 @@ const keyBoxes = document.querySelectorAll('#keys').childNodes;
         dark.style.filter = "invert(0)";
         screen.style.color = "black";
         keySection.style.backgroundColor = "#F8F8F8";
+        numberSpan.forEach( (spans) => {
+            spans.style.backgroundColor = "#E9E9E9";
+            spans.style.color = "black";
+        });
+
+        specialKeysSpan.forEach( (spans) => {
+            spans.style.backgroundColor = "#E9E9E9";
+        });    
+
+        mathKeysSpan.forEach( (spans) => {
+            spans.style.backgroundColor = "#E9E9E9";
+        });    
+        undoImg.style.filter = "invert(0)";
     });
 
+    // Eventlistener for the dark icon
     dark.addEventListener('click', () => {
         container.style.backgroundColor = "black";
         notiBar.style.filter = "invert(0)";
@@ -32,5 +61,18 @@ const keyBoxes = document.querySelectorAll('#keys').childNodes;
         dark.style.filter = "invert(100)";
         screen.style.color = "white";
         keySection.style.backgroundColor = "#131212";
+        numberSpan.forEach( (spans) => {
+            spans.style.backgroundColor = "#1a1919";
+            spans.style.color = "white";
+        });
+
+        specialKeysSpan.forEach( (spans) => {
+            spans.style.backgroundColor = "#1a1919";
+        });    
+
+        mathKeysSpan.forEach( (spans) => {
+            spans.style.backgroundColor = "#1a1919";
+        });   
+        undoImg.style.filter = "invert(100)";
     });
 })();
