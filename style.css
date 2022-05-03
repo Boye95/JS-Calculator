@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: aliceblue;
+    background-color: rgb(187, 187, 187);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@ body {
 #container {
     background-color: black;
     width: 20rem;
-    height: 90vh;
+    height: 42rem;
     border-radius: 1.5rem;
 }
 
@@ -56,7 +56,7 @@ body {
     width: 5rem;
     padding: 10px;
     border-radius: 1rem;
-    background-color: rgb(27, 22, 22);
+    background-color: #1b1616;
 }
 
 .mode {
@@ -91,7 +91,7 @@ body {
 
 #cal-keys-section {
     border-radius: 1.5rem;
-    background-color: rgb(19, 18, 18);
+    background-color: #131212;
     height: 57%;
 }
 
