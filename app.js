@@ -76,3 +76,9 @@ const mathKeysSpan = mathKeys.querySelectorAll('.math-key');
         undoImg.style.filter = "invert(100)";
     });
 })();
+
+// Creating a class `for the calculator
+
+class Calculator {
+    constructor
+}
