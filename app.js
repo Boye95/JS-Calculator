@@ -79,6 +79,14 @@ const mathKeysSpan = mathKeys.querySelectorAll('.math-key');
 
 // Creating a class `for the calculator
 
+
 class Calculator {
-    constructor
+    constructor(operand1, operand2) {
+        this.operand1 = operand1;
+        this.operand2 = operand2;
+    }
+    
+    calculate() {
+
+    }
 }
