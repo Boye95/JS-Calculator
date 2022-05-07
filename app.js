@@ -83,17 +83,30 @@ const calInput = document.querySelector(".cal-input");
 const calResult = document.querySelector(".cal-result");
 calInput.innerText = "";
 
+(function calculate() {
 
-numberSpan.forEach((number) => {
-  number.addEventListener("click", () => {
-    calInput.innerText += number.innerText;
-    // cal.appendNumber();
-    console.log("r5hh");
+
+  numberSpan.forEach((number) => {
+    number.addEventListener("click", () => {
+      calInput.innerText += number.innerText;
+      if (calInput.innerText.includes(".")) {
+        return;
+      }
+    });
   });
-});
 
-mathKeysSpan.forEach((operand) => {
+  mathKeysSpan.forEach((operand) => {
     operand.addEventListener("click", () => {
+        let calText = calInput.innerText;
+        if (calText == "") {
+            return;
+        }
+        if (calText.includes("+") || calText.includes("-") || calText.includes("×") || calText.includes("÷")) {
+          return;
+        }
       calInput.innerText += operand.innerText;
     });
-});
+  });
+
+
+})();
