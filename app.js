@@ -16,7 +16,7 @@ const numberSpan = numberSection.querySelectorAll(".number");
 
 // selecting undo image so as to invert it
 const undoImg = document.querySelector(".undo-img");
-
+const undoClass = document.querySelector(".undo");
 // selecting span elements inside #special-keys div
 const specialKeys = document.querySelector("#special-keys");
 const specialKeysSpan = specialKeys.querySelectorAll(".special");
@@ -80,33 +80,56 @@ const mathKeysSpan = mathKeys.querySelectorAll(".math-key");
 // Creating a class `for the calculator
 
 const calInput = document.querySelector(".cal-input");
+const firstOperand = document.querySelector(".firstOperand");
+const operator = document.querySelector(".operator");
+const secondOperand = document.querySelector(".secondOperand");
 const calResult = document.querySelector(".cal-result");
-calInput.innerText = "";
+// calInput.innerText = "";
+// const firstOperand_innerText = firstOperand.innerText;
+// const operator_innerText = operator.innerText;
+// const secondOperand_innerText = secondOperand.innerText;
 
 (function calculate() {
-
-
   numberSpan.forEach((number) => {
     number.addEventListener("click", () => {
-      calInput.innerText += number.innerText;
-      if (calInput.innerText.includes(".")) {
+      if (number.innerText == "." && firstOperand.innerText == "") {
         return;
+      }
+      if (number.innerText == "." && firstOperand.innerText.includes(".")) {
+        return;
+      }
+      if (
+        operator.innerText.includes("+") ||
+        operator.innerText.includes("-") ||
+        operator.innerText.includes("×") ||
+        operator.innerText.includes("÷")
+      ) {
+        secondOperand.innerText += number.innerText;
+      } else {
+        firstOperand.innerText += number.innerText;
       }
     });
   });
 
+  // undoClass.addEventListener("click", () => {
+  //   calInput.innerText = "";
+  // });
   mathKeysSpan.forEach((operand) => {
     operand.addEventListener("click", () => {
-        let calText = calInput.innerText;
-        if (calText == "") {
-            return;
-        }
-        if (calText.includes("+") || calText.includes("-") || calText.includes("×") || calText.includes("÷")) {
-          return;
-        }
-      calInput.innerText += operand.innerText;
+      let calText = operator.innerText;
+
+      if (firstOperand.innerText == "") {
+        return;
+      }
+      if (
+        calText.includes("+") ||
+        calText.includes("-") ||
+        calText.includes("×") ||
+        calText.includes("÷")
+      ) {
+        return;
+      }
+      operator.innerText += operand.innerText;
     });
   });
-
-
 })();
