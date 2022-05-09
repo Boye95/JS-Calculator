@@ -88,6 +88,9 @@ body {
     font-size: 1.3rem;
     font-weight: 300;
 }
+.operator {
+    color: rgb(202, 72, 72);
+}
 
 #cal-keys-section {
     border-radius: 1.5rem;
