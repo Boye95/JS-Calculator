@@ -90,30 +90,44 @@ const calResult = document.querySelector(".cal-result");
 // const secondOperand_innerText = secondOperand.innerText;
 
 (function calculate() {
+
+  // Adding numbers to first operand
   numberSpan.forEach((number) => {
     number.addEventListener("click", () => {
-      if (number.innerText == "." && firstOperand.innerText == "") {
+      if (
+        (number.innerText == "." && firstOperand.innerText == "") ||
+        (number.innerText == "." && firstOperand.innerText.includes("."))
+      ) {
         return;
       }
-      if (number.innerText == "." && firstOperand.innerText.includes(".")) {
-        return;
-      }
+      firstOperand.innerText += number.innerText;
+    });
+  });
+
+  // Adding numbers to the second operand
+  numberSpan.forEach((number) => {
+    number.addEventListener("click", () => {
       if (
         operator.innerText.includes("+") ||
         operator.innerText.includes("-") ||
         operator.innerText.includes("×") ||
         operator.innerText.includes("÷")
       ) {
+        if (
+          (number.innerText == "." && secondOperand.innerText == "") ||
+          (number.innerText == "." && secondOperand.innerText.includes("."))
+        ) {
+          return;
+        }
         secondOperand.innerText += number.innerText;
-      } else {
-        firstOperand.innerText += number.innerText;
       }
     });
   });
-
   // undoClass.addEventListener("click", () => {
   //   calInput.innerText = "";
   // });
+
+  // Adding operators to the calculator
   mathKeysSpan.forEach((operand) => {
     operand.addEventListener("click", () => {
       let calText = operator.innerText;
@@ -130,6 +144,26 @@ const calResult = document.querySelector(".cal-result");
         return;
       }
       operator.innerText += operand.innerText;
+
+      if (operand.innerText == "=") {
+        switch (calText) {
+          case "+":
+            calResult.innerText = parseFloat(firstOperand.innerText) + parseFloat(secondOperand.innerText);
+            break;
+          case "-":
+            calResult.innerText = parseFloat(firstOperand.innerText) - parseFloat(secondOperand.innerText);
+            break;
+          case "×":
+            calResult.innerText = parseFloat(firstOperand.innerText) * parseFloat(secondOperand.innerText);
+            break;
+          case "÷":
+            calResult.innerText = parseFloat(firstOperand.innerText) / parseFloat(secondOperand.innerText);
+            break;
+          default:
+            console.log("error");
+            break;
+        }
+      }
     });
   });
 })();
