@@ -94,13 +94,22 @@ const calResult = document.querySelector(".cal-result");
   // Adding numbers to first operand
   numberSpan.forEach((number) => {
     number.addEventListener("click", () => {
+      // Added this condition to prevent firstOperand from updating alongside with secondOperand 
+      // if (
+      //   !operator.innerText.includes("+") &&
+      //   !operator.innerText.includes("-") &&
+      //   !operator.innerText.includes("×") &&
+      //   !operator.innerText.includes("÷")) {}
+
       if (
         (number.innerText == "." && firstOperand.innerText == "") ||
-        (number.innerText == "." && firstOperand.innerText.includes("."))
+        (number.innerText == "." && firstOperand.innerText.includes(".")) ||
+        operator.innerText !== ''
       ) {
         return;
       }
       firstOperand.innerText += number.innerText;
+
     });
   });
 
