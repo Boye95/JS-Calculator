@@ -154,8 +154,8 @@ const calResult = document.querySelector(".cal-result");
       }
       operator.innerText += operand.innerText;
 
-      if (operand.innerText == "=") {
-        switch (calText) {
+      if (!calText == "" && operand.innerText === "=") {
+        switch (operator.innerText) {
           case "+":
             calResult.innerText = parseFloat(firstOperand.innerText) + parseFloat(secondOperand.innerText);
             break;
