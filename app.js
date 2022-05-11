@@ -25,6 +25,8 @@ const specialKeysSpan = specialKeys.querySelectorAll(".special");
 const mathKeys = document.querySelector("#math-keys");
 const mathKeysSpan = mathKeys.querySelectorAll(".math-key");
 
+//  grabbing the equal sign
+const equals = document.querySelector(".equal");
 (function () {
   // Eventlistener for the light icon
   light.addEventListener("click", () => {
@@ -90,11 +92,10 @@ const calResult = document.querySelector(".cal-result");
 // const secondOperand_innerText = secondOperand.innerText;
 
 (function calculate() {
-
   // Adding numbers to first operand
   numberSpan.forEach((number) => {
     number.addEventListener("click", () => {
-      // Added this condition to prevent firstOperand from updating alongside with secondOperand 
+      // Added this condition to prevent firstOperand from updating alongside with secondOperand
       // if (
       //   !operator.innerText.includes("+") &&
       //   !operator.innerText.includes("-") &&
@@ -104,12 +105,11 @@ const calResult = document.querySelector(".cal-result");
       if (
         (number.innerText == "." && firstOperand.innerText == "") ||
         (number.innerText == "." && firstOperand.innerText.includes(".")) ||
-        operator.innerText !== ''
+        operator.innerText !== ""
       ) {
         return;
       }
       firstOperand.innerText += number.innerText;
-
     });
   });
 
@@ -132,9 +132,6 @@ const calResult = document.querySelector(".cal-result");
       }
     });
   });
-  // undoClass.addEventListener("click", () => {
-  //   calInput.innerText = "";
-  // });
 
   // Adding operators to the calculator
   mathKeysSpan.forEach((operand) => {
@@ -142,6 +139,9 @@ const calResult = document.querySelector(".cal-result");
       let calText = operator.innerText;
 
       if (firstOperand.innerText == "") {
+        return;
+      }
+      if (operand.innerText == "=") {
         return;
       }
       if (
@@ -153,26 +153,57 @@ const calResult = document.querySelector(".cal-result");
         return;
       }
       operator.innerText += operand.innerText;
+    });
+  });
 
-      if (!calText == "" && operand.innerText === "=") {
-        switch (operator.innerText) {
-          case "+":
-            calResult.innerText = parseFloat(firstOperand.innerText) + parseFloat(secondOperand.innerText);
-            break;
-          case "-":
-            calResult.innerText = parseFloat(firstOperand.innerText) - parseFloat(secondOperand.innerText);
-            break;
-          case "×":
-            calResult.innerText = parseFloat(firstOperand.innerText) * parseFloat(secondOperand.innerText);
-            break;
-          case "÷":
-            calResult.innerText = parseFloat(firstOperand.innerText) / parseFloat(secondOperand.innerText);
-            break;
-          default:
-            console.log("error");
-            break;
-        }
+  // Adding eventlistener to the equal "=" operator
+
+  equals.addEventListener("click", () => {
+    if (!operator.innerText == "" && !secondOperand.innerText == "") {
+      switch (operator.innerText) {
+        case "+":
+          calResult.innerText =
+            parseFloat(firstOperand.innerText) +
+            parseFloat(secondOperand.innerText);
+          break;
+        case "-":
+          calResult.innerText =
+            parseFloat(firstOperand.innerText) -
+            parseFloat(secondOperand.innerText);
+          break;
+        case "×":
+          calResult.innerText =
+            parseFloat(firstOperand.innerText) *
+            parseFloat(secondOperand.innerText);
+          break;
+        case "÷":
+          calResult.innerText =
+            parseFloat(firstOperand.innerText) /
+            parseFloat(secondOperand.innerText);
+          break;
+        default:
+          console.log("error");
+          break;
+      }
+    }
+  });
+
+  // Specialkey: adding eventlistenr to each sKey
+
+  specialKeysSpan.forEach((sKey) => {
+    sKey.addEventListener("click", () => {
+      if (sKey.innerText == "AC") {
+        firstOperand.innerText = "";
+        operator.innerText = "";
+        secondOperand.innerText = "";
+        calResult.innerText = "";
       }
     });
+  });
+
+  // Adding eventlistener to the undo button
+
+  undoClass.addEventListener("click", () => {
+    calInput.innerText = "";
   });
 })();

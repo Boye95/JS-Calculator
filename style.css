@@ -76,7 +76,6 @@ body {
     justify-content: flex-end;
     padding: 1rem;
     color: white;
-    /* background-color: rgb(61, 65, 68); */
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     font-weight: 900;
@@ -85,9 +84,25 @@ body {
 }
 
 .cal-input {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    overflow: scroll;
     font-size: 1.3rem;
     font-weight: 300;
 }
+
+.cal-result {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    overflow: scroll;
+}
+
+.cal-input::-webkit-scrollbar, .cal-result::-webkit-scrollbar {
+    display: none;
+}
+
 .operator {
     color: rgb(202, 72, 72);
 }
