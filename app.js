@@ -204,6 +204,12 @@ const calResult = document.querySelector(".cal-result");
   // Adding eventlistener to the undo button
 
   undoClass.addEventListener("click", () => {
-    calInput.innerText = "";
+    let allInput = [firstOperand, operator, secondOperand, calResult];
+    allInput.forEach((input) => {
+      if (input.innerText.length > 0) {
+        input.innerText = input.innerText.slice(0, -1);
+      }
+
+    });
   });
 })();
