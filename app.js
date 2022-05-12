@@ -204,12 +204,19 @@ const calResult = document.querySelector(".cal-result");
   // Adding eventlistener to the undo button
 
   undoClass.addEventListener("click", () => {
-    let allInput = [firstOperand, operator, secondOperand, calResult];
-    allInput.forEach((input) => {
-      if (input.innerText.length > 0) {
-        input.innerText = input.innerText.slice(0, -1);
-      }
+    let allInput = [
+      ...firstOperand.innerText,
+      ...operator.innerText,
+      ...secondOperand.innerText,
+      ...calResult.innerText,
+    ];
 
-    });
+    if (allInput.length > 0) {
+      allInput.pop();
+      firstOperand.innerText = allInput.join("");
+
+      // allInput = allInput.slice(0, -1);
+    }
+    console.log(allInput);
   });
 })();
