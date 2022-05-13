@@ -211,12 +211,7 @@ const calResult = document.querySelector(".cal-result");
       ...calResult.innerText,
     ];
 
-    if (allInput.length > 0) {
-      allInput.pop();
-      firstOperand.innerText = allInput.join("");
-
-      // allInput = allInput.slice(0, -1);
-    }
+    
     console.log(allInput);
   });
 })();
