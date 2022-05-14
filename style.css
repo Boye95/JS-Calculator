@@ -9,6 +9,7 @@
 body {
     background-color: rgb(187, 187, 187);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -209,4 +210,12 @@ body {
     border-radius: 33px;
     margin: auto;
     background-color: rgb(59, 58, 58);
+}
+.credit {
+    color: rgb(0, 0, 0);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
 }
