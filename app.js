@@ -198,20 +198,48 @@ const calResult = document.querySelector(".cal-result");
         secondOperand.innerText = "";
         calResult.innerText = "";
       }
+      if (sKey.innerText == "±") {
+        if (calResult.innerText.includes("-")) {
+          calResult.innerText = calResult.innerText.replace("-", "");
+        } else {
+          calResult.innerText = "-" + calResult.innerText;
+        }
+
+        // if (Math.sign(calResult.innerText) == -1) {
+        //   calResult.innerText = `${calResult.innerText}`;
+        // }
+        // if (Math.sign(calResult.innerText) == 1) {
+        //   calResult.innerText = `-${calResult.innerText}`;
+        // }
+      }
+      if (sKey.innerText == "%") {
+        calResult.innerText = calResult.innerText / 100;
+      }
     });
   });
 
   // Adding eventlistener to the undo button
 
   undoClass.addEventListener("click", () => {
-    let allInput = [
-      ...firstOperand.innerText,
-      ...operator.innerText,
-      ...secondOperand.innerText,
-      ...calResult.innerText,
-    ];
+    // let allInput = [
+    //   ...firstOperand.innerText,
+    //   ...operator.innerText,
+    //   ...secondOperand.innerText,
+    //   ...calResult.innerText,
+    // ];
 
-    
-    console.log(allInput);
+    if (calResult.innerText.length > 0) {
+      calResult.innerText = calResult.innerText.slice(0, -1);
+    }
+    if (secondOperand.innerText.length > 0 && calResult.innerText == "") {
+      secondOperand.innerText = secondOperand.innerText.slice(0, -1);
+    }
+    if (operator.innerText.length > 0 && secondOperand.innerText == "") {
+      operator.innerText = operator.innerText.slice(0, -1);
+    }
+    if (firstOperand.innerText.length > 0 && operator.innerText == "") {
+      firstOperand.innerText = firstOperand.innerText.slice(0, -1);
+    }
+    // console.log(allInput);
   });
 })();
