@@ -199,6 +199,9 @@ const calResult = document.querySelector(".cal-result");
         calResult.innerText = "";
       }
       if (sKey.innerText == "±") {
+        if (calResult.innerText == "") {
+          return;
+        }
         if (calResult.innerText.includes("-")) {
           calResult.innerText = calResult.innerText.replace("-", "");
         } else {
