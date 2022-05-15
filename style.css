@@ -67,8 +67,8 @@ body {
     cursor: pointer;
 }
 
-.light {
-    opacity: 0.5;
+.dark {
+    opacity: 0.2;
 }
 
 #screen {
