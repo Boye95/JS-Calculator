@@ -130,6 +130,15 @@ const calResult = document.querySelector(".cal-result");
         }
         secondOperand.innerText += number.innerText;
       }
+
+      if (calResult.innerText !== "") {
+        firstOperand.innerText = "";
+        secondOperand.innerText = "";
+        calResult.innerText = "";
+        operator.innerText = "";
+      }
+        
+      
     });
   });
 
