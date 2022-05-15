@@ -79,6 +79,23 @@ const equals = document.querySelector(".equal");
   });
 })();
 
+// Make the time work
+
+(function () {
+  const time = document.querySelector(".time");
+  let date = new Date();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+
+  // time.innerText = `${hours}:${minutes}`;
+  setInterval(() => {
+    date = new Date();
+    hours = date.getHours();
+    minutes = date.getMinutes();
+    time.innerText = `${hours}:${minutes}`;
+  }, 1000);
+})()
+
 // Creating a class `for the calculator
 
 const calInput = document.querySelector(".cal-input");
